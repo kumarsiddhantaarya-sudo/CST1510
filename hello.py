@@ -1,1 +1,0 @@
-print('Hello to the CST1510 module')
