@@ -42,11 +42,13 @@ def load_records(path):
 #for line in f: looks at the file one line at a time.
 #return returns the finished list back.
 with open("ServerRecords.txt", "w") as f:
-    f.write("SRV-001,87,100\n")
-    f.write("SRV-002,120,100\n")
-    f.write("SRV-003,95,100\n")
-    f.write("SRV-004,45,100\n")
-    f.write("SRV-005,130,100\n")
+    while True:
+        label = input("Enter server name (or quit to stop): ")
+        if label == "quit":
+            break
+        value = input("Enter GB used: ")
+        limit = input("Enter total GB: ")
+        f.write(f"{label},{value},{limit}\n")
 records = load_records("ServerRecords.txt")
 over_limit_count = 0
 for r in records:
