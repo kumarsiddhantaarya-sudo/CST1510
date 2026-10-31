@@ -12,10 +12,13 @@ Work through the numbered sections in order. Each one tells you what it must do.
 Delete these instructions as you replace them with your code.
 """
 with open("HOSTNAME.txt", "w") as f:
-    f.write("SRV-01,81,100\n")
-    f.write("SRV-02,150,100\n")
-    f.write("SRV-03,35,100\n")
-    f.write("SRV-04,104,100\n")
+    while True:
+        hostname = input("Enter server name (or quit to stop): ")
+        if hostname == "quit":
+            break
+        used = input("Enter GB used: ")
+        total = input("Enter total GB: ")
+        f.write(f"{hostname},{used},{total}\n")
 #with open("HOSTNAME.txt", "w") as f: creates a new text file with the hostname information, the gb used and the total gb.
 #\n creates a new line
 def load_records(path):
@@ -33,7 +36,7 @@ def load_records(path):
                 "Total": float(total),})
     return hostnames
 #load_records reads each line, splits it into hostname, used and total, converts the numbers to float, and returns all the hostnames as a list of dicts.
-#split(",") turns "SRV-01,81,100" into ["SRV-01", "81", "100"]
+#split(",") turns for example "SRV-01,81,100" into ["SRV-01", "81", "100"]
 try:
     hostnames = load_records("HOSTNAME.txt")
 except FileNotFoundError:
