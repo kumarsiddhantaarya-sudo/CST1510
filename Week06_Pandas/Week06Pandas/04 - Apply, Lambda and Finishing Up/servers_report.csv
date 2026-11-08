@@ -1,0 +1,6 @@
+hostname,used,total,region,region_upper
+srv-1,80,100,east,EAST
+srv-2,120,100,west,WEST
+srv-3,105,100,north,NORTH
+srv-4,50,100,east,EAST
+srv-5,103,100,west,WEST
